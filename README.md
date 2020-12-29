@@ -1,4 +1,5 @@
 #EA
+##Cài đặt:
 - cd ea
 - npm install
 - npx nodemon app.js
