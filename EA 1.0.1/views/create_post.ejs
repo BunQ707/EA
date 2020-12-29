@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EA</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="main-container" class="">
+      <% include partials/header.ejs %>
+
+    <div class="container">
+      <form action="/post/prepare"  method='post'>
+        <div class="col-md-8 offset-md-2"> <span class="anchor" id="formUserEdit"></span>
+          <hr class="my-5">
+          <!-- form user info -->
+          <div class="card card-outline-secondary">
+            <div class="card-header">
+              <h3 class="mb-0">Thông tin chung</h3>
+            </div>
+            <div class="card-body">
+              <!-- <form class="form" role="form" autocomplete="off"> -->
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label" >Tiêu đề:</label>
+                  <div class="col-lg-9">
+                    <input class="form-control" type="text" id="tieude_p" name="tieude_p" minlength="1" maxlength="255" placeholder='' required >
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Quận</label>
+                  <div class="col-lg-9">
+                    <select id="quanhuyen_p" class="form-control" name='quanhuyen_p' size="0">
+                      <option value="Cầu Giấy" >Cầu Giấy</option>
+                      <option value="Đống Đa" >Đống Đa</option>
+                      <option value="Ba Đình" >Ba Đình</option>
+                      <option value="Hai Bà Trưng" >Hai Bà Trưng</option>
+                      <option value="Thanh Xuân" >Thanh Xuân</option>
+                      <option value="Tây Hồ" >Tây Hồ</option>
+                      <option value="Hoàn Kiếm" >Hoàn Kiếm</option>        
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label" >Đường</label>
+                  <div class="col-lg-9">
+                    <input class="form-control"type="text" id="duong_p" name="duong_p" maxlength="255" >
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label" >Chi tiết hơn</label>
+                  <div class="col-lg-9">
+                    <input class="form-control"type="text" id="chitiet_p" name="chitiet_p" maxlength="255">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Gợi ý</label>
+                  <div class="col-lg-9">
+                    <input class="form-control" type="text" id="goiy_p" name="goiy_p" maxlength="255">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Phân loại</label>
+                  <div class="col-lg-9">
+                    <select id="dsquan" class="form-control" id="phanloai_p" name="phanloai_p" size="0">
+                      <option value="phòng trọ">phòng trọ</option>
+                      <option value="chung cư mini">chung cư mini</option>
+                      <option value="nhà nguyên căn">nhà nguyên căn</option>
+                      <option value="chung cư nguyên căn">chung cư nguyên căn</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Số lượng</label>
+                  <div class="col-lg-9">
+                    <input class="form-control" type="number" id="soluong_p" name="soluong_p" value="1" min='1' max='30' required >
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Điều kiện cơ sở vật chất -->
+
+          <div class="col-md-6 offset-md-3"> <span class="anchor" id="formUserEdit"></span>
+            <hr class="my-5">
+            <div class="card card-outline-secondary">
+              <div class="card-header">
+                <h3 class="mb-0">Điều kiện cơ sở vật chất</h3>
+              </div>
+              <div class="card-body">
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Diện tích (m^2)</label>
+                  <div class="col-lg-9">
+                    <input class="form-control" type="number" id="dientich_p" name="dientich_p" min='1' >
+                  </div>
+                </div>
+                
+                <div class="form-group row">
+                  <div class="col-md-6 ">
+                    <div class="custom-control custom-checkbox ">
+                      <input type="checkbox" class="custom-control-input" id="chungchu_p" name="chungchu_p" >
+                      <label class="custom-control-label" for="chungchu_p">Chung chủ</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6 ">
+                    <div class="custom-control custom-checkbox ">
+                      <input type="checkbox" class="custom-control-input" id="phongtamkhepkin_p" name="phongtamkhepkin_p" >
+                      <label class="custom-control-label" for="phongtamkhepkin_p">Phòng tắm khép kín</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6 ">
+                    <div class="custom-control custom-checkbox ">
+                      <input type="checkbox" class="custom-control-input" id="phongtamnonglanh_p" name="phongtamnonglanh_p" >
+                      <label class="custom-control-label" for="phongtamnonglanh_p">Có nóng lạnh</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6 ">
+                    <div class="custom-control custom-radio ">
+                      <input type="radio" class="custom-control-input" id="phongbep_p1" name="phongbep_p" value="chung" required>
+                      <label class="custom-control-label" for="phongbep_p1">Bếp chung</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 ">
+                    <div class="custom-control custom-radio ">
+                      <input type="radio" class="custom-control-input" id="phongbep_p2" name="phongbep_p" value="riêng" required>
+                      <label class="custom-control-label" for="phongbep_p2">Bếp riêng</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 ">
+                    <div class="custom-control custom-radio ">
+                      <input type="radio" class="custom-control-input" id="phongbep_p3" name="phongbep_p" value="không" required>
+                      <label class="custom-control-label" for="phongbep_p3">Không bếp</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6 ">
+                    <div class="custom-control custom-checkbox ">
+                      <input type="checkbox" class="custom-control-input" id="dieuhoa_p" name="dieuhoa_p" >
+                      <label class="custom-control-label" for="dieuhoa_p">Có điều hoà</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6 ">
+                    <div class="custom-control custom-checkbox ">
+                      <input type="checkbox" class="custom-control-input" id="bancong_p" name="bancong_p" >
+                      <label class="custom-control-label" for="bancong_p">Có ban công</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Tiện ích khác</label>
+                  <div class="col-lg-9">
+                    <input class="form-control" type="text" id="khac_p" name="khac_p" maxlength="255" >
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Giá -->
+
+          <div class="col-md-6 offset-md-3"> <span class="anchor" id="formUserEdit"></span>
+            <hr class="my-5">
+            <div class="card card-outline-secondary">
+              <div class="card-header">
+                <h3 class="mb-0">Giá tiền</h3>
+              </div>
+              <div class="card-body">
+
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Giá thuê 1 tháng ( *1000 vnđ )</label>
+                  <div class="col-lg-9">
+                    <input class="form-control" type="number" id="gia_p" name="gia_p" min='100' required >
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Giá điện (một số điện)</label>
+                  <div class="col-lg-9">
+                    <input class="form-control" type="number" id="giadien_p" name="giadien_p" required >
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Giá nước (một mét khối nước)</label>
+                  <div class="col-lg-9">
+                    <input class="form-control" type="number" id="gianuoc_p" name="gianuoc_p" min='1' max='30' required >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="mb-4">
+          <button class="btn btn-primary  btn-block" type="submit">Xác nhận</button>
+        </form>
+      </div>
+
+      <% include partials/footer.ejs %>
+    </div>
+  </body>
+</html>
+
