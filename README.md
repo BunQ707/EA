@@ -1,4 +1,7 @@
 # EA
+## Yêu cầu:
+- Mongodb
+- npm
 ## Cài đặt:
 - cd ea
 - npm install
