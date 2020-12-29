@@ -80,10 +80,10 @@ router.route('/logout')
         req.logout();
         req.session.destroy(err => {
             res.clearCookie();
-            // res.redirect('/');
+            res.redirect('/');
         });
       }
-      res.redirect('/');
+      // res.redirect('/');
     })
     .post((req, res) => {
         console.log('logging out');
@@ -129,6 +129,7 @@ router.get('/user/me', async function(req, res, next) {
 router.route('/post/prepare')
   // .all(auth)
   .get((req, res) => {
+    if (!req.isAuthenticated()) res.render('login');
     res.render('create_post');
   })
   .post(async (req,res) => {

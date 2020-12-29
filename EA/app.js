@@ -47,7 +47,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 //=================================
 
-// Gán địa chỉ
+
 app.use('/', Router);
 // app.use('/user', usersRouter);
 
